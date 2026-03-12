@@ -1,33 +1,18 @@
-# SAESPro
+# Descripción
+Este es un proyecto para gestionar datos de manera eficiente.
 
-## Description
-SAESPro is a powerful software that provides a variety of features to assist in the analysis and execution of tasks. It is designed to be user-friendly and efficient for both beginners and advanced users.
+# Características
+- Gestión de datos
+- Interfaz de usuario intuitiva
+- Soporte multiplataforma
 
-## Features
-- **Feature 1**: Explanation of feature 1.
-- **Feature 2**: Explanation of feature 2.
-- **Feature 3**: Explanation of feature 3.
+# Requisitos
+- Node.js 14 o superior
+- MongoDB 4.2 o superior
 
-## Requirements
-- Python 3.6 or higher
-- Required libraries: `requests`, `numpy`, etc.
+# Instalación
+1. Clona el repositorio
+2. Instala las dependencias: `npm install`
 
-## Installation Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/sofiaperalta5/saespro.git
-   ```
-2. Navigate into the project directory:
-   ```bash
-   cd saespro
-   ```
-3. Install the required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## How to Run the Project
-To run the project, execute the following command:
-```bash
-python main.py
-```
+# Cómo Ejecutar
+Ejecuta el comando `npm start` para iniciar la aplicación.
