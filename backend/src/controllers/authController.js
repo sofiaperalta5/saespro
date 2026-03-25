@@ -42,12 +42,12 @@ exports.login = async (req, res) => {
     }
 
     const token = jwt.sign(
-      { id: user.id, email: user.email },
+      { id: user.id, email: user.email, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: '24h' }
     );
 
-    res.json({ message: 'Login exitoso', token, user: { id: user.id, email: user.email, name: user.name } });
+    res.json({ message: 'Login exitoso', token, user: { id: user.id, email: user.email, name: user.name, role: user.role } });
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Error al iniciar sesión' });
