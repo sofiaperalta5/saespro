@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Navbar({ isAuthenticated }) {
+function Navbar({ isAuthenticated, setIsAuthenticated }) {
   const navigate = useNavigate();
   const user = isAuthenticated ? JSON.parse(localStorage.getItem('user')) : null;
   const isTeacher = user?.role === 'teacher';
@@ -9,7 +9,8 @@ function Navbar({ isAuthenticated }) {
   const handleLogout = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    window.location.href = '/';
+    if (setIsAuthenticated) setIsAuthenticated(false);
+    navigate('/');
   };
 
   return (
@@ -19,12 +20,15 @@ function Navbar({ isAuthenticated }) {
         <div className="navbar-links">
           {isAuthenticated ? (
             <>
+              <button onClick={() => navigate('/dashboard')}>Dashboard</button>
+              <button onClick={() => navigate('/subjects')}>Materias</button>
+              <button onClick={() => navigate('/students')}>Estudiantes</button>
+              <button onClick={() => navigate('/enrollments')}>Inscripciones</button>
               {isTeacher && (
                 <button onClick={() => navigate('/teacher-grades')}>
-                  Agregar Calificaciones
+                  Calificaciones
                 </button>
               )}
-              <button onClick={() => navigate('/dashboard')}>Dashboard</button>
               <button onClick={() => navigate('/profile')}>Perfil</button>
               <button onClick={handleLogout}>Logout</button>
             </>
