@@ -7,6 +7,9 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import TeacherGrades from './pages/TeacherGrades';
+import Subjects from './pages/Subjects';
+import Students from './pages/Students';
+import Enrollments from './pages/Enrollments';
 import NotFound from './pages/NotFound';
 import './App.css';
 
@@ -22,7 +25,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar isAuthenticated={isAuthenticated} />
+      <Navbar isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login setIsAuthenticated={setIsAuthenticated} />} />
@@ -30,6 +33,9 @@ function App() {
         <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />} />
         <Route path="/profile" element={isAuthenticated ? <Profile /> : <Navigate to="/login" />} />
         <Route path="/teacher-grades" element={isAuthenticated ? <TeacherGrades /> : <Navigate to="/login" />} />
+        <Route path="/subjects" element={isAuthenticated ? <Subjects /> : <Navigate to="/login" />} />
+        <Route path="/students" element={isAuthenticated ? <Students /> : <Navigate to="/login" />} />
+        <Route path="/enrollments" element={isAuthenticated ? <Enrollments /> : <Navigate to="/login" />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
